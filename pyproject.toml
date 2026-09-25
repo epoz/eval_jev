@@ -1,0 +1,11 @@
+[project]
+name = "evaluate-jev"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipython>=9.17.1",
+    "pydantic>=2.13.5",
+    "typesafe-sdk>=0.7.1",
+]
