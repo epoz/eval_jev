@@ -28,7 +28,10 @@ the same caption, so this is a multi-label problem.
  "IC": [["11E1(+3)", "Holy Ghost represented as a dove ..."], ["49L171", "historiated initial"], ...]}
 ```
 
-Dataset: 97 captions, 2,265 caption–candidate pairs in total.
+Dataset: 92 captions, 2,126 caption–candidate pairs (`data/candidates.json`).
+The results below were computed on an earlier version with 97 captions and
+2,265 pairs (`data/candidates.with-duplicates.json`), in which 5 images appear
+twice with different captions.
 
 ## Systems and approach
 
@@ -75,15 +78,11 @@ they disagree:
 
 ## Project layout
 
-The working files are in the shared FIZ folder `Evaluate Jev/`:
-
 | Path | Contents |
 |---|---|
-| `README.md` | Scoping note: goals, which FIZ use cases to test, what to evaluate |
-| `Plan.md` | Task plan, commands that were run, and results, section by section |
-| `study.md` | Reasoning and formulas behind the metrics |
-| `TODO.md` | Open tasks, owners, deadline (2026-09-25) |
-| `data/candidates.json` | The evaluation set: captions and candidate Iconclass codes |
+| `data/candidates.json` | The evaluation set, deduplicated: 92 captions, 2,126 caption–candidate pairs |
+| `data/candidates.with-duplicates.json` | The earlier 97-item set (5 images captioned twice). The outputs in `data/output/` and the results above were computed on this one |
+| `data/ids.tsv` | Caption ids |
 | `data/output/` | Predictions, rankings and comparison CSV for each system |
 | `scripts/gen_candidates.py` | Builds candidate lists (EmbeddingGemma + DuckDB vector search) |
 | `scripts/classify_captions_jev.py` | Jev classification using Noul questions, with timing report |
